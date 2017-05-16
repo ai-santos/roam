@@ -3,7 +3,7 @@ API Driven Full stack travel application
 
 Wireframes
 
-![Roam Wireframes](./images/roam-wireframes.png)
+![Roam Wireframes](dist/public/images/roam-wireframes.png)
 
 Specifications
 
