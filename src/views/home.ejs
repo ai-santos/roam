@@ -5,9 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Roam</title>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+
 </head>
 <body>
-  <h1>Here is our Roam App!</h1>
+  <div>
+    <%- include('partials/navbar') %>
+  </div>
+  <div class="video-container">
+    <video width="2150px" src="https://d1235ca2z646oc.cloudfront.net/videos/processed/14/Arc_De_Triomphe.mp4.mp4"  autoplay loop>
+    </video>
+  </div>
+  <div class="row section">
+    <%- include('partials/feature_blogs') %>
+  </div>
 
+  <div class="row section">
+    <%- include('partials/about') %>
+  </div>
+  <div class="row">
+    <%- include('partials/footer') %>
+  </div>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 </body>
 </html>
