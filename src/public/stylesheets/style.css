@@ -21,3 +21,20 @@ video {
 nav .brand-logo {
   font-size: 4em;
 }
+
+.card-panel {
+  width: 500px;
+}
+
+.col {
+  height: 100px;
+}
+
+.section {
+  margin-top: 50px;
+  height: 500px;
+}
+
+.page-footer {
+  background-color: black;
+}
