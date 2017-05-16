@@ -10,4 +10,9 @@ router.get( '/dashboard', (request, response, next) => {
   response.render('users/dashboard')
 })
 
+router.get( '/cities', (request, response, next) => {
+  response.render('cities')
+})
+
+
 module.exports = router
