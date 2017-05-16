@@ -65,3 +65,15 @@ nav .brand-logo {
   height: 25%;
   width: 25%;
 }
+
+.card.profile, .card .card-content {
+  width: 300px;
+}
+
+.card.profile {
+  margin-top: 50px;
+}
+
+.card.blog {
+  margin-top: -3rem;
+}
