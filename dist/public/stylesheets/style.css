@@ -1,0 +1,23 @@
+nav div a {
+  padding-top: 20px;
+  margin-left: 40px;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 1.8em;
+}
+
+nav {
+  background-color: black;
+  height: 100px;
+}
+
+video {
+  margin-top: -50px;
+}
+
+.brand-logo {
+  margin-top: 20px;
+}
+
+nav .brand-logo {
+  font-size: 4em;
+}
