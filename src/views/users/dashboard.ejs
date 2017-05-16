@@ -16,14 +16,43 @@
 <div>
   <%- include('../partials/navbar') %>
 </div>
+
 <div class="row">
-    <div class="card-small">
+
+  <div class="col s4 m6">
+    <div class="card profile">
       <div class="card-image">
-        <img src="http://i.dailymail.co.uk/i/pix/2016/05/23/22/348B850600000578-3605456-image-m-32_1464040491071.jpg">
+         <img src="http://i.dailymail.co.uk/i/pix/2016/05/23/22/348B850600000578-3605456-image-m-32_1464040491071.jpg">
+        <span class="card-title">@Sabrin</span>
+      </div>
+      <div class="card-content">
+        <p>Sabrin Nasreddin</p>
+        <p>Oakland, California</p>
+        <p>Roaming since 2016</p>
+      </div>
+      <div class="card-action">
+        <a href="#">This is a link</a>
+      </div>
     </div>
   </div>
-</div>
 
+  <div class="col s12 m7 offset-l3">
+    <div class="card blog">
+      <div class="card-image">
+        <img class="activator" src="http://www.movingtolondon.net/wp-content/uploads/2015/09/london.jpg">
+        <span class="card-title">Card Title</span>
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+        <p><a href="#">This is a link</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
+  </div>
+
+</div>
 
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -39,26 +68,3 @@
 
 
 
-
-
-
-
-
-
-<div class="row">
-  <div class="col s12 m7">
-    <div class="card">
-      <div class="card-image">
-        <img src="images/sample-1.jpg">
-        <span class="card-title">Card Title</span>
-      </div>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-      </div>
-    </div>
-  </div>
-</div>
