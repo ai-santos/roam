@@ -8,9 +8,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var router = _express2.default.Router();
 
-//refactor database functions to only make database calls
 router.get('/', function (request, response, next) {
   response.render('home');
+});
+
+router.get('/dashboard', function (request, response, next) {
+  response.render('users/dashboard');
+});
+
+router.get('/cities', function (request, response, next) {
+  response.render('cities');
 });
 
 module.exports = router;

@@ -35,6 +35,33 @@ nav .brand-logo {
   height: 500px;
 }
 
+.page-banner{
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+.page-banner > *{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+.page-banner > h1{
+  color: white;
+  text-align: center;
+  font-size: 200px;
+}
+
 .page-footer {
   background-color: black;
+}
+
+.card-image img {
+  height: 25%;
+  width: 25%;
 }
