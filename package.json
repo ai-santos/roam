@@ -40,6 +40,7 @@
     "underscore": "^1.8.3"
   },
   "dependencies": {
-    "materialize-css": "^0.98.2"
+    "materialize-css": "^0.98.2",
+    "passport-oauth2": "^1.4.0"
   }
 }
