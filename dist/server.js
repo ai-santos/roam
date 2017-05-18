@@ -47,18 +47,18 @@ _passport2.default.use(new _passportGithub2.default({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
   callbackURL: "http://127.0.0.1:8080/auth_callback"
-}, function (accessToken, refreshToken, dashboard, cb) {
+}, function (accessToken, refreshToken, profile, cb) {
   cb(null, {
     accessToken: accessToken,
-    dashboard: dashboard
+    profile: profile
   });
 }));
 
 _passport2.default.serializeUser(function (user, cb) {
-  cb(null, dashboard);
+  cb(null, user);
 });
 
-_passport2.default.deserializeUser(function (obj, cb) {
+_passport2.default.deserializeUser(function (user, cb) {
   cb(null, user);
 });
 
@@ -87,15 +87,14 @@ server.use('/', _index2.default);
 server.get('/login', _passport2.default.authenticate('github'));
 
 server.get('/auth_callback', _passport2.default.authenticate('github'), function (req, res) {
-  console.log('is this working...please');
   //yay! logged in to github
   console.log('here');
-  res.redirect('./views/users/dashboard');
+  res.redirect('/dashboard');
 });
 
 server.get('/dashboard', require('connect-ensure-login').ensureLoggedIn(), function (req, res) {
   console.log('our user', req.user);
-  res.render('./views/users/dashboard', { user: req.user });
+  res.render('users/dashboard', { user: req.user });
 });
 
 server.listen(process.env.PORT || 8080);
