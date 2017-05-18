@@ -36,15 +36,11 @@ var _passportGithub = require('passport-github');
 
 var _passportGithub2 = _interopRequireDefault(_passportGithub);
 
-var _connectEnsureLogin = require('connect-ensure-login');
-
-var _connectEnsureLogin2 = _interopRequireDefault(_connectEnsureLogin);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//allows to have access to the body of the request using request.body. u can do it urself but body parser does it for u
+// http request logger middlewre for node.js. it's a helper that collects log from your server
+require('dotenv').config(); //allows to have access to the body of the request using request.body. u can do it urself but body parser does it for u
 //package like express
-require('dotenv').config(); // http request logger middlewre for node.js. it's a helper that collects log from your server
 
 
 _passport2.default.use(new _passportGithub2.default({
@@ -52,7 +48,10 @@ _passport2.default.use(new _passportGithub2.default({
   clientSecret: process.env.CLIENT_SECRET,
   callbackURL: "http://127.0.0.1:8080/auth_callback"
 }, function (accessToken, refreshToken, dashboard, cb) {
-  cb(null, dashboard);
+  cb(null, {
+    accessToken: accessToken,
+    dashboard: dashboard
+  });
 }));
 
 _passport2.default.serializeUser(function (user, cb) {
@@ -86,13 +85,17 @@ server.use(_passport2.default.session());
 server.use('/', _index2.default);
 
 server.get('/login', _passport2.default.authenticate('github'));
-server.get('/auth_callback', _passport2.default.authenticate('github', { failureRedirect: '/login' }), function (req, res) {
+
+server.get('/auth_callback', _passport2.default.authenticate('github'), function (req, res) {
+  console.log('is this working...please');
   //yay! logged in to github
-  res.redirect('/dashboard');
+  console.log('here');
+  res.redirect('./views/users/dashboard');
 });
 
-server.get('/dashboard', _connectEnsureLogin2.default.ensureLoggedIn(), function (req, res) {
-  res.render('./users/dashboard', { user: req.user });
+server.get('/dashboard', require('connect-ensure-login').ensureLoggedIn(), function (req, res) {
+  console.log('our user', req.user);
+  res.render('./views/users/dashboard', { user: req.user });
 });
 
 server.listen(process.env.PORT || 8080);
