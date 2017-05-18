@@ -15,19 +15,19 @@ passport.use(new Strategy({
   clientSecret: process.env.CLIENT_SECRET,
   callbackURL: "http://127.0.0.1:8080/auth_callback"
   },
-  (accessToken, refreshToken, dashboard, cb) => {
+  (accessToken, refreshToken, profile, cb) => {
     cb(null, {
       accessToken: accessToken,
-      dashboard: dashboard
+      profile: profile
     })
   }
 ))
 
 passport.serializeUser((user, cb) => {
-  cb(null, dashboard)
+  cb(null, user)
 })
 
-passport.deserializeUser((obj, cb) => {
+passport.deserializeUser((user, cb) => {
   cb(null, user)
 })
 
@@ -59,15 +59,14 @@ server.use('/', index)
 server.get('/login', passport.authenticate('github'))
 
 server.get('/auth_callback', passport.authenticate('github'), (req, res) => {
-    console.log('is this working...please')
     //yay! logged in to github
     console.log('here')
-    res.redirect('./views/users/dashboard')
+    res.redirect('/dashboard')
 })
 
 server.get('/dashboard', require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
     console.log('our user', req.user)
-    res.render('./views/users/dashboard', { user: req.user } )
+    res.render('users/dashboard', { user: req.user } )
 })
 
 server.listen(process.env.PORT || 8080)
