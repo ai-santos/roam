@@ -52,7 +52,6 @@ server.use(expressSession(
 server.use(passport.initialize())
 server.use(passport.session())
 
-
 //routes
 server.use('/', index)
 
@@ -64,9 +63,15 @@ server.get('/auth_callback', passport.authenticate('github'), (req, res) => {
     res.redirect('/dashboard')
 })
 
+server.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/')
+})
+
 server.get('/dashboard', require('connect-ensure-login').ensureLoggedIn(), (req, res) => {
-    console.log('our user', req.user)
-    res.render('users/dashboard', { user: req.user } )
+  const loggedIn = req.user ? false : true
+
+  res.render('users/dashboard', { user: req.user, loggedIn: loggedIn } )
 })
 
 server.listen(process.env.PORT || 8080)

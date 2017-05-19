@@ -8,13 +8,15 @@
 
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <script src="https://use.fontawesome.com/aa5ba8f49d.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
   <link rel="stylesheet" href="../stylesheets/style.css">
 
 </head>
 <body>
   <div>
-    <%- include('partials/navbar') %>
+    <%- include('partials/navbar', {loggedIn: true}) %>
   </div>
   <div class="video-container">
     <video width="2150px" src="https://d1235ca2z646oc.cloudfront.net/videos/processed/14/Arc_De_Triomphe.mp4.mp4"  autoplay loop>
@@ -34,65 +36,15 @@
   <!-- Modal Structure -->
   <div id="modal2" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>Log In</h4>
+      <h4>Log In With Github</h4>
       <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="email" type="email" class="validate">
-              <label for="email">Email</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
-            </div>
-          </div>
-        </form>
+      <a href="/login" class="waves-effect waves-light btn"><i class="fa fa-github" aria-hidden="true"></i>SIGN IN USING GITHUB</a>
       </div>
-    </div>
-    <div class="modal-footer">
-      <a href="/login" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
     </div>
   </div>
 
 
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Sign Up</h4>
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-              <label for="first_name">First Name</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate">
-              <label for="last_name">Last Name</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="email" type="email" class="validate">
-              <label for="email">Email</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <a href="/signup" class="modal-action modal-close waves-effect waves-green btn-flat ">Submit</a>
-    </div>
-  </div>
+
 
 
   <!--Import jQuery before materialize.js-->
