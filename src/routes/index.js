@@ -7,7 +7,6 @@ router.get( '/', (request, response, next) => {
   response.render('home')
 })
 
-
 router.get( '/cities', (request, response, next) => {
   response.render('cities')
 })

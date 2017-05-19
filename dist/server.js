@@ -92,9 +92,15 @@ server.get('/auth_callback', _passport2.default.authenticate('github'), function
   res.redirect('/dashboard');
 });
 
+server.get('/logout', function (req, res) {
+  req.logout();
+  res.redirect('/');
+});
+
 server.get('/dashboard', require('connect-ensure-login').ensureLoggedIn(), function (req, res) {
-  console.log('our user', req.user);
-  res.render('users/dashboard', { user: req.user });
+  var loggedIn = req.user ? false : true;
+
+  res.render('users/dashboard', { user: req.user, loggedIn: loggedIn });
 });
 
 server.listen(process.env.PORT || 8080);
